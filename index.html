@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1 GB DATA FREE</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+        }
+        h1 {
+            color: yellow;
+            text-align: center;
+            font-size: 2em;
+        }
+        h2 {
+            color: blue;
+            text-align: center;
+        }
+        .instruction-box, .timer-box {
+            border: 2px solid black;
+            padding: 5px;
+            margin: 5px;
+            background-color: white;
+            color: black;
+        }
+        #timer {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+        }
+        #referrer {
+            display: none;
+        }
+    </style>
+</head>
+<body onload="showReferrer()">
+
+<h1 id="title">1 GB DATA FREE</h1>
+
+<div class="instruction-box" id="instructions">
+    <h2>Instruction</h2>
+    <ol>
+        <li>DO fill the mobile number and press submit.</li>
+        <li>See some ads.</li>
+        <li>Wait for the result on our telegram channel @surpriseforyouonly.</li>
+    </ol>
+</div>
+
+<div class="timer-box" id="timerBox">
+    <h2>Time Left for Submission</h2>
+    <p id="timer"></p>
+</div>
+
+<div id="form" style="display: none;">
+    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfYLOh31-9SLiDcnro2lZq9AZim5RVlMbYVq4RVt4ZAtXt7DA/viewform?embedded=true" width="640" height="418" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+</div>
+
+<p id="referrer"></p>
+
+<script>
+function showReferrer() {
+  var referrer = document.referrer;
+  document.getElementById("referrer").innerHTML = referrer;
+  if (referrer === "https://linkshortify.com/") {
+    document.getElementById("title").style.display = "block";
+    document.getElementById("instructions").style.display = "none";
+    document.getElementById("timerBox").style.display = "none";
+    document.getElementById("form").style.display = "block";
+  }
+}
+
+// Timer code
+var countDownDate = new Date().getTime() + 15*60000; // 15 minutes from now
+var x = setInterval(function() {
+  var now = new Date().getTime();
+  var distance = countDownDate - now;
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("timer").innerHTML = minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
+
+
+
